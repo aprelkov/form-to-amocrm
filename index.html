@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>New Lead & Contact</title>
+    <link rel="stylesheet" type="text/css" href="main.css" media="all">
+</head>
+<body>
+    <div id="wrapper">
+
+        <header>
+            <h1>New Lead & Contact</h1>
+        </header>
+
+        <div id="contact_form">
+            <form action="handler.php" method="post">
+                <div class="field">
+                    <label>Name</label><input type="text" name="name">
+                </div>
+                <div class="field">
+                    <label>Phone</label><input type="tel" name="phone">
+                </div>
+                <div class="field">
+                    <label>E-mail</label><input type="email" name="email">
+                </div>
+                <div class="field">
+                    <label>Additional field</label><input type="text" name="add_field">
+                </div>
+                <div>
+                    <button type="submit">Create Lead & Contact</button>
+                    <button type="reset">Clear</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</body>
+</html>
