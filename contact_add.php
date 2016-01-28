@@ -26,15 +26,6 @@ if(!empty($data['phone']))
 			)
 		)
 );
-if(!empty($data['city']))
-	$contact['custom_fields'][]=array(
-		'id'=>$custom_fields['CITY']['id'],
-		'values'=>array(
-			array(
-				'value'=>$data['city']
-			)
-		)
-	);
 
 
 $set['request']['contacts']['add'][] = $contact;
