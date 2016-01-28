@@ -1,18 +1,13 @@
-label
-{
-	float: left;
-	padding-right: 10px;
+label {
+    float: left;
+    padding-right: 10px;
 }
-
-#contact_form
-{
-	float: left;
-	margin: 6px 10px;
+#contact_form {
+    float: left;
+    margin: 6px 10px;
 }
-
-.field
-{
-	clear: both;
-	text-align: right;
-	line-height: 2em;
+.field {
+    clear: both;
+    text-align: right;
+    line-height: 2em;
 }
