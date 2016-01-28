@@ -3,7 +3,7 @@
 $lead_number=time();
 $lead_name='Заявка с сайта №'.$lead_number;
 
-$need=array_flip(array('POSITION','PHONE','EMAIL','CITY' ));
+$need=array_flip(array('POSITION','PHONE','EMAIL' ));
 if(isset($account['custom_fields'],$account['custom_fields']['contacts']))
 	do
 	{
@@ -12,9 +12,6 @@ if(isset($account['custom_fields'],$account['custom_fields']['contacts']))
 			{
 				if(isset($field['code']) && isset($need[$field['code']]))
 					$fields[$field['code']]=(int)$field['id'];
-				#SCOPE - нестандартное поле, поэтому обрабатываем его отдельно
-				elseif(isset($field['name']) && $field['name']=='Город')
-					$fields['CITY']=$field;
 
 				$diff=array_diff_key($need,$fields);
 				if(empty($diff))
