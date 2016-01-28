@@ -1,32 +1,21 @@
 <?php
 
 $contact=array(
-			'name'=>$data['name'],      
-	    'linked_leads_id'=>array($lead_id),
-			'custom_fields'=>array(
-				array(
-					'id'=>$custom_fields['EMAIL'],
-					'values'=>array(
-						array(
-							'value'=>$data['email'],
-							'enum'=>'WORK'
-						)
+	'name'=>$data['name'],      
+	'linked_leads_id'=>array($lead_id),
+		'custom_fields'=>array(
+			array(
+				'id'=>$custom_fields['EMAIL'],
+				'values'=>array(
+					array(
+						'value'=>$data['email'],
+						'enum'=>'WORK'
 					)
 				)
 			)
-		);
+		)
+);
 
-// if(!empty($data['company']))
-// 	$contact+=array('company_name'=>$data['company']);
-// if(!empty($data['position']))
-// 	$contact['custom_fields'][]=array(
-// 		'id'=>$custom_fields['POSITION'],
-// 		'values'=>array(
-// 			array(
-// 				'value'=>$data['position']
-// 			)
-// 		)
-// );
 if(!empty($data['phone']))
 	$contact['custom_fields'][]=array(
 		'id'=>$custom_fields['PHONE'],
@@ -37,9 +26,6 @@ if(!empty($data['phone']))
 			)
 		)
 );
-
-
-
 if(!empty($data['city']))
 	$contact['custom_fields'][]=array(
 		'id'=>$custom_fields['CITY']['id'],
@@ -49,48 +35,9 @@ if(!empty($data['city']))
 			)
 		)
 	);
-// if(!empty($data['jabber']))
-// 	$contact['custom_fields'][]=array(
-// 		'id'=>$custom_fields['IM'],
-// 		'values'=>array(
-// 			array(
-// 				'value'=>$data['jabber'],
-// 				'enum'=>'JABBER'
-// 			)
-// 		)
-// 	);
-
-
-/*
-if(!empty($data['scope']))
-{
-	foreach($data['scope'] as &$enum)
-		$enum=trim($scope_info[$enum]);
-	unset($enum);
-	$intersect=array_intersect($custom_fields['SCOPE']['enums'],$data['scope']);
-	foreach($intersect as $k=>$v)
-		$values[]=array(
-			'value'=>$v,
-			'enum'=>$k
-		);
-
-	$scope=array(
-		'id'=>(int)$custom_fields['SCOPE']['id'],
-		'values'=>$values
-	);
-
-	$contact['custom_fields'][]=$scope;
-}*/
-
-
-
-// $contact['linked_leads_id'] = $account['leads_statuses'][0];
 
 
 $set['request']['contacts']['add'][] = $contact;
-
-
-
 
 #Формируем ссылку для запроса
 $link='https://'.$subdomain.'.amocrm.ru/private/api/v2/json/contacts/set';
@@ -122,11 +69,9 @@ $Response=$Response['response']['contacts']['add'];
 
 $output='ID добавленных контактов:'.PHP_EOL;
 
-
-
-
 foreach($Response as $v)
 	if(is_array($v))
 		$output.=$v['id'].PHP_EOL;
 return $output;
+
 ?>
