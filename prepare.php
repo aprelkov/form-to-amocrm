@@ -25,10 +25,10 @@ function CheckCurlResponse($code)
 }
 
 $data=array(
-	'name'=>isset($_POST['name']) ? $_POST['name'] : '',
-	'phone'=>isset($_POST['phone']) ? $_POST['phone'] : '',
-	'email'=>isset($_POST['email']) ? $_POST['email'] : '',
-	'city'=>isset($_POST['city']) ? $_POST['city'] : ''
+	'name'=>isset($_POST['name']) ? $_POST['name'] : 'name',
+	'phone'=>isset($_POST['phone']) ? $_POST['phone'] : 'phone',
+	'email'=>isset($_POST['email']) ? $_POST['email'] : 'email',
+	'add_field_1'=>isset($_POST['add_field_1']) ? $_POST['add_field_1'] : ''
 );
 
 #Если не указано имя или e-mail контакта - уведомляем
