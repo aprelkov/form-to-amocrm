@@ -2,10 +2,18 @@
 
 $lead=array(
     'name'=>$lead_name,
-    'tags'=>'Заявка с сайта',
-    'status_id' => 'unsorted'
+    'tags'=>'from website'
     );
 
+if(!empty($data['add_field_1']))
+	$lead['custom_fields'][]=array(
+		'id'=>'906044', #замените на id вашего дополнительного поля в amoCRM
+		'values'=>array(
+			array(
+				'value'=>$data['add_field_1']
+			)
+		)
+);
 
 $set['request']['leads']['add'][]=$lead;
 #Формируем ссылку для запроса
