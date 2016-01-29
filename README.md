@@ -14,18 +14,16 @@ With small adjustments, this Script can be easily adapted to integrate amoCRM wi
 
 <h3>Setting up:</h3>
 
-Set up in your account JustClick (or any other Service) Webhook submitting to the <i>order_jc.php</i> when ordering, and to the <i>paid_jc.php</i> when you pay;
-<br/>The file <i>prepare.php</i>: Edit the Data and Variables from the resulting Array;
+The file <i>prepare.php</i>: Edit the data of resuting Array in this file so that it coincide with the data sent from the html-form;
 <br/>The file <i>auth.php</i>: Replace the authorization Data on your amoCRM Data: Username (email), Hash (API key) and Subdomain;
 <br/>The file <i>leads_info.php</i>: Edit the list of Variables for the custom Fields as you need at the top of the Script;
-<br/>The files <i>lead_add.php</i> and <i>lead_update.php</i>: Edit additional Fields Id as well as Variables that you want to send to them.
+<br/>The file <i>lead_add.php</i>: Edit additional Fields Id as well as Variables that you want to send to this Fields.
 
 <h3>Testing:</h3>
 
 At this Repository I created a convenient test function.
 <br/>You needn't to fill out a form each time and make an order on Service that you are integrating.
-<br/>Just open the root folder (file <i>index.html</i>) after loading the Script on your hosting, and you'll see two buttons: Order and Paid. Clicking on any of them, you'll simulate sending an Array by the Service.
-<br/>To use the test, remove the # icon before the last line in the file prepare.php while testing, and replace the Array in the file <i>test/prepare.php</i> with the one that the Service sends at the time of order or payment.
+<br/>Just open thethe root folder ( file <i>test/index.html</i>) after loading the Script on your hosting, and you'll see simple example of html-form. Full fill the form and click "Create Lead & Contact", and you'll see the result.
 
 <h3>Support:</h3>
 
