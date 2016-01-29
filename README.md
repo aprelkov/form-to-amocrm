@@ -1,4 +1,4 @@
-<h1>Adding Lead & Contact to amoCRM from html-form on Website</h1>
+<h1>Adding Lead & Contact to amoCRM from Website</h1>
 
 <h3>Objective:</h3>
 
