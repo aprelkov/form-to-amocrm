@@ -3,3 +3,32 @@
 <h3>Objective:</h3>
 
 This Script automatically creates connected Lead and Contact in amoCRM when sending Data from a standart html-form on your Website.
+
+With small adjustments, this Script can be easily adapted to integrate amoCRM with any Website using html-form.
+
+<h3>Features:</h3>
+
+<b>Binding of Contact to the Lead</b>
+<br/>All Contacts are linking to the relevant Leads.
+<br/>If Contact with the Email already exists, Leads are linking to the existing Contact. The new Contact isn't creating.
+<br/>However, there is a small bug in the internal contacts search algorithm of amoCRM. If an email address before or after the at sign @ contains less than 3 characters, then these characters are not considered in the search, and the Lead can be attached to a similar Contact. <br/>Fortunately this bug occurs very rarely.
+
+<h3>Setting up:</h3>
+
+Set up in your account JustClick (or any other Service) Webhook submitting to the <i>order_jc.php</i> when ordering, and to the <i>paid_jc.php</i> when you pay;
+<br/>The file <i>prepare.php</i>: Edit the Data and Variables from the resulting Array;
+<br/>The file <i>auth.php</i>: Replace the authorization Data on your amoCRM Data: Username (email), Hash (API key) and Subdomain;
+<br/>The file <i>leads_info.php</i>: Edit the list of Variables for the custom Fields as you need at the top of the Script;
+<br/>The files <i>lead_add.php</i> and <i>lead_update.php</i>: Edit additional Fields Id as well as Variables that you want to send to them.
+
+<h3>Testing:</h3>
+
+At this Repository I created a convenient test function.
+<br/>You needn't to fill out a form each time and make an order on Service that you are integrating.
+<br/>Just open the root folder (file <i>index.html</i>) after loading the Script on your hosting, and you'll see two buttons: Order and Paid. Clicking on any of them, you'll simulate sending an Array by the Service.
+<br/>To use the test, remove the # icon before the last line in the file prepare.php while testing, and replace the Array in the file <i>test/prepare.php</i> with the one that the Service sends at the time of order or payment.
+
+<h3>Support:</h3>
+
+If you have any questions, write to me in PM.
+<br>I'll be glad to help you!
