@@ -3,7 +3,6 @@
 <h3>Objective:</h3>
 
 This Script automatically creates connected Lead and Contact in amoCRM when sending Data from a standart html-form on your Website.
-
 With small adjustments, this Script can be easily adapted to integrate amoCRM with any Website using html-form.
 
 <h3>Features:</h3>
