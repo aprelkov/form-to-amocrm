@@ -1,6 +1,6 @@
 <?php
 
-if(empty($contact['id'])) { 
+if(empty($contact['id'])) {    # If such Сontact doesn't exist in amoCRM, then we create a new Contact
 $contact=array(
 	'name'=>$data['name'],      
 	'linked_leads_id'=>array($lead_id),
@@ -31,11 +31,11 @@ if(!empty($data['phone']))
 
 $set['request']['contacts']['add'][] = $contact;
 
-#Формируем ссылку для запроса
+# Create a link for request
 $link='https://'.$subdomain.'.amocrm.ru/private/api/v2/json/contacts/set';
 
-$curl=curl_init(); #Сохраняем дескриптор сеанса cURL
-#Устанавливаем необходимые опции для сеанса cURL
+$curl=curl_init(); # Save the cURL session handle
+# Set the necessary options for cURL session
 curl_setopt($curl,CURLOPT_RETURNTRANSFER,true);
 curl_setopt($curl,CURLOPT_USERAGENT,'amoCRM-API-client/1.0');
 curl_setopt($curl,CURLOPT_URL,$link);
@@ -48,20 +48,20 @@ curl_setopt($curl,CURLOPT_COOKIEJAR,dirname(__FILE__).'/cookie.txt'); #PHP>5.3.6
 curl_setopt($curl,CURLOPT_SSL_VERIFYPEER,0);
 curl_setopt($curl,CURLOPT_SSL_VERIFYHOST,0);
 
-$out=curl_exec($curl); #Инициируем запрос к API и сохраняем ответ в переменную
+$out=curl_exec($curl); # Initiate a request to the API and stores the response to variable
 $code=curl_getinfo($curl,CURLINFO_HTTP_CODE);
 CheckCurlResponse($code);
 
 /**
- * Данные получаем в формате JSON, поэтому, для получения читаемых данных,
- * нам придётся перевести ответ в формат, понятный PHP
+ * Obtain data in JSON-format, therefore, to obtain the data being read,
+ * we have to translate the answer into a format understood by PHP
  */
 $Response=json_decode($out,true);
 $Response=$Response['response']['contacts']['add'];
 
-echo 'Новая заявка успешно добавлена.';
+echo 'New order successfully added.';
 
-$output='ID добавленных контактов:'.PHP_EOL;
+$output='Added contacts IDs:'.PHP_EOL;
 
 foreach($Response as $v)
 	if(is_array($v))
@@ -69,7 +69,7 @@ foreach($Response as $v)
 return $output;
 }
 
-else { 
+else {    # If such Contact already exists in amoCRM, we attach new Lead to it
     $contact=array(
 		'id' => $contact['id'],
 		'linked_leads_id' => array($lead_id),
@@ -79,10 +79,10 @@ else {
     
     $set['request']['contacts']['update'][] = $contact;
     
-    #Формируем ссылку для запроса
+# Create a link for request
 $link='https://'.$subdomain.'.amocrm.ru/private/api/v2/json/contacts/set';
-$curl=curl_init(); #Сохраняем дескриптор сеанса cURL
-#Устанавливаем необходимые опции для сеанса cURL
+$curl=curl_init(); # Save the cURL session handle
+# Set the necessary options for cURL session
 curl_setopt($curl,CURLOPT_RETURNTRANSFER,true);
 curl_setopt($curl,CURLOPT_USERAGENT,'amoCRM-API-client/1.0');
 curl_setopt($curl,CURLOPT_URL,$link);
@@ -95,12 +95,12 @@ curl_setopt($curl,CURLOPT_COOKIEJAR,dirname(__FILE__).'/cookie.txt'); #PHP>5.3.6
 curl_setopt($curl,CURLOPT_SSL_VERIFYPEER,0);
 curl_setopt($curl,CURLOPT_SSL_VERIFYHOST,0);
  
-$out=curl_exec($curl); #Инициируем запрос к API и сохраняем ответ в переменную
+$out=curl_exec($curl); # Initiate a request to the API and stores the response to variable
 $code=curl_getinfo($curl,CURLINFO_HTTP_CODE);
 $Response=json_decode($out,true);
 $Response2=$Response['response']['contacts']['update'];
 
-echo 'Такой контакт уже существует в CRM. <br>Новая заявка добавлена к нему.';
+echo 'Such Сontact already exists in the CRM. <br> New Lead is added to it.';
 }
 
 ?>
