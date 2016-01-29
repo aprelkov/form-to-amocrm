@@ -1,7 +1,7 @@
 <?php
 
 $lead_number=time();
-$lead_name='Заявка с сайта №'.$lead_number;
+$lead_name='New Lead from Website #'.$lead_number;
 
 $need=array_flip(array('POSITION','PHONE','EMAIL' ));
 if(isset($account['custom_fields'],$account['custom_fields']['contacts']))
@@ -18,13 +18,13 @@ if(isset($account['custom_fields'],$account['custom_fields']['contacts']))
 					break 2;
 			}
 			if(isset($diff))
-				die('В amoCRM отсутствуют следующие поля'.': '.join(', ',$diff));
+				die('In amoCRM missing the following fields: '.join(', ',$diff));
 			else
-				die('Невозможно получить дополнительные поля');
+				die('Unable to get additional fields');
 		}
 	while(false);
 else
-	die('Невозможно получить дополнительные поля');
+	die('Unable to get additional fields');
 
 $custom_fields=isset($fields) ? $fields : false;
 
