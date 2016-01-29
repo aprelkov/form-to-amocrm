@@ -16,7 +16,7 @@ With small adjustments, this Script can be easily adapted to integrate amoCRM wi
 
 The file <i>prepare.php</i>: Edit the data of resuting Array in this file so that it coincide with the data sent from the html-form;
 <br/>The file <i>auth.php</i>: Replace the authorization Data on your amoCRM Data: Username (email), Hash (API key) and Subdomain;
-<br/>The file <i>leads_info.php</i>: Edit the list of Variables for the custom Fields as you need at the top of the Script;
+<br/>The file <i>fields_info.php</i>: Edit the list of Variables for the custom Fields as you need at the top of the Script;
 <br/>The file <i>lead_add.php</i>: Edit additional Fields Id as well as Variables that you want to send to this Fields.
 
 <h3>Testing:</h3>
